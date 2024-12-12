@@ -59,8 +59,8 @@ ip add 192.168.103.11 255.255.255.0
 ALL THE PORN SITES THE WORLD ARE OWNED BY 5 COMPANIES:
 
 config t
-NO ip access-list standard NOPORN1
-ip access-list standard NOPORN1
+NO ip access-list standard NOPORNNOFAP
+ip access-list standard NOPORNNOFAP
 DENY 66.254.0.0 0.0.255.255
 DENY 104.21.0.0 0.0.255.255
 DENY 68.235.0.0 0.0.255.255
@@ -70,14 +70,42 @@ DENY 208.77.0.0 0.0.255.255
 DENY 172.67.0.0 0.0.255.255
 Permit Any
 Int Gi 1
- ip access-group NOPORN1 in
+ ip access-group NOPORNNOFAP in
  end
+gobyerno: allow 
+config t
+Int gi 1
+ NO ip access-group NOPORNNOFAP in
+end
+
+Alternative: Use standard ACL 1-99
+config t
+no access-list 69
+access-list 69 DENY 66.254.0.0 0.0.255.255
+access-list 69 DENY 104.21.0.0 0.0.255.255
+access-list 69 DENY 68.235.0.0 0.0.255.255
+access-list 69 DENY 104.17.0.0 0.0.255.255
+access-list 69 DENY 88.208.0.0 0.0.255.255
+access-list 69 DENY 208.77.0.0 0.0.255.255
+access-list 69 DENY 172.67.0.0 0.0.255.255
+access-list 69 permit Any
+Int gi 1
+ ip access-group 69 in
+end
+
+Gobyerno: allow all for freedom of expression!
+config t
+int gi 1
+ NO ip access-group 69 in
+end
+
 Task1.2: block admu.edu.ph, dlsu.edu.ph, ccp.edu.ph, ue.edu.ph
 
-ping www.dlsu.edu.ph 172.67.14.0
-ping www.ccp.edu.ph 50.6.160.0
-ping www.feu.edu.ph 184.168.125.0
-ping  www.ue.edu.ph 155.137.92.0
+ping www.dlsu.edu.ph 172.67.14.0 104.22.37.142
+ping www.ccp.edu.ph 50.6.160.0 50.6.160.47
+ping www.feu.edu.ph 184.168.125.0 184.168.125.216
+ping www.ue.edu.ph 155.137.92.0 155.137.92.102
+ping www.lyceumalabang.edu.ph 110.34.166.131
 
 TASK2: USE STANDARD ACCESS-LIST TO BLOCK OTHER CONTRIES/CLASSMATE:
 config t
@@ -94,6 +122,29 @@ Permit Any
 Int Gi 0/0/1
  ip access-group NOCLASSMATE1 in
  end
+
+YOUR COMPANY HAS VERY LOW INTERNET SPEED, BECAUSE OF TORRENTS: 
+www.thepiratebay.org 162.159.136.6
+www.limetorrents.com 104.31.16.5
+www.freeanimeonline.com 13.248.169.48
+www.torlock2.co 104.21.32.1
+www.hentaisites.com 172.67.173.147
+www.iptorrents.com 104.21.112.1
+
+config t
+NO ip access-list standard NOTORRENTDOWNLOAD
+ip access-list standard NOTORRENTDOWNLOAD
+DENY 162.159.136.0 0.0.255.255
+DENY 104.31.16.0 0.0.255.255
+DENY 13.248.169.0 0.0.255.255
+DENY 104.21.32.0 0.0.255.255
+DENY 172.67.173.0 0.0.255.255
+DENY 104.21.112.0 0.0.255.255
+Permit Any
+Int Gi 1
+ ip access-group NOTORRENTDOWNLOAD in
+ end
+
 
 TASK3: When you become a Security Analyst:
 Learn to Block the IPaddress from 3 "BAD" countries:
