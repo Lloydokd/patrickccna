@@ -524,7 +524,37 @@ icmp 192.168.108.88:57096  192.168.103.12:57096  8.8.8.8:57096         8.8.8.8:5
 icmp 192.168.108.88:56584  192.168.103.12:56584  8.8.4.4:56584         8.8.4.4:56584
 Total number of translations: 7
 
-FW-VPN-PH#
+############       CONFIGURING CISCO NETWORK SERVICES:
+Lab 1. NETWORK TIME PROTOCOL: NTP uses udp port 123
+@cmd
+C:\Users\Administrator>nmap -sU time.google.com
+PORT      STATE  SERVICE
+123/udp   open   ntp
+33459/udp closed unknown
+
+Configure R1-Fw to use time.google.com ntp server.
+config t
+ntp server time.google.com
+end
+sh ntp association
+sh ntp status
+sh ntp association detail
+
+Lab2. SecureShellServer: ssh version 2
+step1: domainName rsa 1024/2048, ssh config:
+config t
+ip domain-name kahitano.com
+username patrick privilege 15 secret pass
+crypto key generate rsa
+ip ssh version 2
+ip ssh time-out 120
+line vty 0 30
+login local
+
+
+
+
+
 
 TASK10: DO YOU HAVE TO REPLACED BY A.I AT WORK? REPLACED BY
 YOUNGER, SMARTER, CHEAPER NEW HIRES?? HOW TO BE UNTOUCHABLE EMPLOYEE?
@@ -536,6 +566,28 @@ you need HAYUP/SIX DIGITS SWELDO Habits.
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---- BEGIN SSH2 PUBLIC KEY ----
+AAAAB3NzaC1yc2EAAAADAQABAAABAQC1KV7qgDFo591PLAl3604LsEJVrDtjXbTG
+F8g08hRRnoyi4IR9nDpOFIoX0EzHfbM4ELmhcDJseKenxmRZZLJFie7iXvucL6x8
+EbEU6Kon83jvA6U9g6guWUymeDggA9cLjX9moYgFwARQTi3nGBUT0CEXPUlzmqod
+NRkRmkUqwh2L5/TMFomSEYWw9pufLtIJxVL7dFx16fpakrnDfgBlhoRlO016fit7
+ILsTDcoE5CUwBaO5gOSs493FXZy5DlStXYoJYP0kkKy89VXKxDmsipSoBrD4TS0g
+36BNddctmSxgT0TdniQ+4/Zg+U6b/jzpEhJ+fXxp8+ecG/0cm7C9
+---- END SSH2 PUBLIC KEY ----
 
 
 
