@@ -145,6 +145,11 @@ Int Gi 1
  ip access-group NOTORRENTDOWNLOAD in
  end
 
+Gobyerno: allow all for freedom of expression!
+config t
+int gi 1
+ NO ip access-group NOTORRENTDOWNLOAD in
+end
 
 TASK3: When you become a Security Analyst:
 Learn to Block the IPaddress from 3 "BAD" countries:
