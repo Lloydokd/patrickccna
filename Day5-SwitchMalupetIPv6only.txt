@@ -279,7 +279,8 @@ Master the 4 super Hereos of Switching
 Qpid: 802.1Q:trunking
 "make switch love each other!"LQ
 Darna: 802.1d: STP
-"slowly protect switches" , wait 30 seconds 
+"slowly protect switches" , wait 30 seconds
+lis=15s, lrn=15s, fwd: or blk.
 WonderWoman: 802.1w: rapidSTP
 "quickly,Brutally protect switches"
 SuperMan: 802.1s: MiSTP
@@ -322,7 +323,7 @@ Switch: show spanning-tree vlan 1
 Blk - LIS - LRN -FWD
       15s   15s     = 30s
 
-Task9.2: STP Port Roles: 
+Task9.2: STP Port Roles: 802.1d (Protect the switch slowly and gently 30/s)
 DesignatedPort/DP = fwd port of Root Bridge
 RootPort/RP = fwd port of non-root Bridge(1 only)
 AlternatePort/AP = blk port of nonRootPorts
@@ -362,10 +363,10 @@ end
 #sh int status err-disabled 
 TAAS: bounce/UP/down, bring BACK TO LIFE.
 config t
-int fa 0/1
+int fa 0/3
  shut
  no shut
-int fa 0/3
+int fa 0/7
  shut
  no shut
 end
