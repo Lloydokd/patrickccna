@@ -543,7 +543,7 @@ VRRP 10 Priority 100
 
 TASK17: Port-Aggregation/Etherchannel: 100% EXAM LAB!!
 LACP:LINK AGGREGATION CONTROL PROTOCOL = ieee worldStandrad
-cisco = PortAggregationProtocl: PaGP
+cisco = PortAggregationProtocol: PaGP
 Combinding Two/More Layer 2 links AS ONE! Unite/UNITY
 @taas/BABA:
 config t
@@ -554,6 +554,15 @@ Int Range fa0/10-12
  do sh int po1 | inc BW
 
 TASK18: HOW TO RETAIN ALL THE INFORMATION:
+HOW TO GET CERTIFIED IN 2025!!!
+MAGIC FORMULA:
+1. Anti-Tamad Medicine:
+	no one passes alone! tropa na answerable.
+	Above: mas magaling sayo
+	Equal: to challenge you
+	Below: Help others in network, cisco, hacking
+2. How to Pass the Exam!!!
+	300usd -> 
 run RSThayup: switchingLAB
 1.sh cdp neighbor
 2.Trunk all the Ports:
